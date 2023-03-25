@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:person_app/person/bloc/favorite_person_bloc.dart';
+import 'package:person_app/person/widgets/animated_scroll_view_item.dart';
 
 class FavoritePersonListView extends StatelessWidget {
   const FavoritePersonListView({super.key});
@@ -15,16 +16,18 @@ class FavoritePersonListView extends StatelessWidget {
       itemBuilder: (context, index) {
         final person = persons[index];
 
-        return ListTile(
-          title: Text(person.name),
-          subtitle: Text(person.color),
-          trailing: GestureDetector(
-            onTap: () {
-              context
-                  .read<FavoritePersonBloc>()
-                  .add(FavoritePersonRemoved(person));
-            },
-            child: const Icon(Icons.bookmark_border_rounded),
+        return AnimatedScrollViewItem(
+          child: ListTile(
+            title: Text(person.name),
+            subtitle: Text(person.color),
+            trailing: GestureDetector(
+              onTap: () {
+                context
+                    .read<FavoritePersonBloc>()
+                    .add(FavoritePersonRemoved(person));
+              },
+              child: const Icon(Icons.bookmark_border_rounded),
+            ),
           ),
         );
       },
