@@ -2,13 +2,13 @@ part of 'favorite_person_bloc.dart';
 
 @immutable
 class FavoritePersonState extends Equatable {
-  const FavoritePersonState(this.favoritePersons);
+  const FavoritePersonState(this.persons);
 
-  final List<Person> favoritePersons;
+  final List<Person> persons;
 
   @override
-  List<Object> get props => [favoritePersons];
+  List<Object> get props => [persons];
 
   FavoritePersonState copyWith({List<Person>? person}) =>
-      FavoritePersonState(person ?? favoritePersons);
+      FavoritePersonState(person ?? persons);
 }

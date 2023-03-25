@@ -18,8 +18,8 @@ class FavoritePersonBloc
     FavoritePersonAdded event,
     Emitter<FavoritePersonState> emit,
   ) async {
-    if (!state.favoritePersons.contains(event.person)) {
-      emit(FavoritePersonState([...state.favoritePersons, event.person]));
+    if (!state.persons.contains(event.person)) {
+      emit(FavoritePersonState([...state.persons, event.person]));
     }
   }
 
@@ -27,7 +27,7 @@ class FavoritePersonBloc
     FavoritePersonRemoved event,
     Emitter<FavoritePersonState> emit,
   ) async {
-    final person = [...state.favoritePersons]..remove(event.person);
+    final person = [...state.persons]..remove(event.person);
     emit(FavoritePersonState(person));
   }
 }

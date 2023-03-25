@@ -9,7 +9,7 @@ class FavoritePersonListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final persons = context.watch<FavoritePersonBloc>().state.favoritePersons;
+    final persons = context.watch<FavoritePersonBloc>().state.persons;
 
     return ListView.builder(
       itemCount: persons.length,
